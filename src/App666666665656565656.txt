@@ -1,0 +1,174 @@
+import React, { useState } from "react";
+import {
+  Phone,
+  MessageCircle,
+  MapPin,
+  Clock,
+  Mail,
+  ChevronDown,
+  Star,
+  Truck,
+  Shield,
+  RotateCcw,
+  Users,
+  CheckCircle,
+  Store
+} from "lucide-react";
+
+import {
+  SiTelegram,
+  SiInstagram,
+  SiVk,
+  SiOdnoklassniki
+} from "react-icons/si";
+
+export default function App() {
+  const [activeFaq, setActiveFaq] = useState(null);
+
+  const categories = [
+    {
+      name: "Перфораторы",
+      image: "https://images.unsplash.com/photo-1586864387789-628af9feed72?auto=format&fit=crop&w=800&q=80",
+    },
+    {
+      name: "Шуруповёрты",
+      image: "https://images.unsplash.com/photo-1607349913338-fca6f7fc42d0?auto=format&fit=crop&w=800&q=80",
+    },
+    {
+      name: "Бетономешалки",
+      image: "https://images.unsplash.com/photo-1590650046871-92c887180603?auto=format&fit=crop&w=800&q=80",
+    },
+    {
+      name: "Виброплиты",
+      image: "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=800&q=80",
+    },
+    {
+      name: "Генераторы",
+      image: "https://images.unsplash.com/photo-1581092919535-7146c98b7f2d?auto=format&fit=crop&w=800&q=80",
+    },
+    {
+      name: "Лазерные уровни",
+      image: "https://images.unsplash.com/photo-1597008641621-cefdcf718d2b?auto=format&fit=crop&w=800&q=80",
+    },
+    {
+      name: "Мойки высокого давления",
+      image: "https://images.unsplash.com/photo-1616627981431-9c6e77f5a07e?auto=format&fit=crop&w=800&q=80",
+    },
+    {
+      name: "И другое",
+      image: "https://images.unsplash.com/photo-1604081219986-3c8f8b3b0b92?auto=format&fit=crop&w=800&q=80",
+    },
+  ];
+
+  const features = [
+    { icon: <CheckCircle />, title: "Честная цена", text: "Без скрытых доплат" },
+    { icon: <Shield />, title: "Проверка при выдаче", text: "Всё показываем" },
+    { icon: <RotateCcw />, title: "Возврат залога", text: "Сразу при сдаче" },
+    { icon: <Truck />, title: "Доставка", text: "По Бийску и области" },
+    { icon: <RotateCcw />, title: "Замена", text: "Если инструмент подвёл" },
+    { icon: <Users />, title: "Для бригад", text: "Особые условия" },
+  ];
+
+  const faqs = [
+    { q: "Какой залог?", a: "Обычно 50–100% от стоимости инструмента." },
+    { q: "Если сломал?", a: "Оплачивается ремонт или замена." },
+    { q: "Есть доставка?", a: "Да, по городу и на объект." },
+    { q: "Есть скидки?", a: "Да, от 3 дней и для бригад." },
+  ];
+
+  return (
+    <div className="min-h-screen bg-white text-gray-900">
+      {/* WhatsApp */}
+      <a
+        href="https://wa.me/79959290510"
+        className="fixed bottom-6 right-6 z-50 bg-green-500 p-4 rounded-full text-white shadow-lg"
+      >
+        <MessageCircle />
+      </a>
+
+      {/* Header */}
+      <header className="sticky top-0 bg-white shadow z-40">
+        <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+          <div className="text-xl font-bold bg-orange-500 text-white px-4 py-2 rounded">
+            Честный прокат
+          </div>
+          <div className="flex items-center gap-4 text-xl text-orange-500">
+            <a href="https://t.me/+79959290510" target="_blank" rel="noreferrer"><SiTelegram /></a>
+            <a href="https://instagram.com/chestnyiprokat" target="_blank" rel="noreferrer"><SiInstagram /></a>
+            <a href="https://vk.ru/id1093800923" target="_blank" rel="noreferrer"><SiVk /></a>
+            <a href="https://ok.ru/profile/910414818145" target="_blank" rel="noreferrer"><SiOdnoklassniki /></a>
+            <a href="https://www.avito.ru/user/9765685b6a7393edb1dc46374637f824/profile?src=sharing" target="_blank" rel="noreferrer">
+              <Store />
+            </a>
+          </div>
+        </div>
+      </header>
+
+      {/* Hero */}
+      <section className="bg-gradient-to-r from-orange-500 to-orange-600 text-white py-20 text-center">
+        <h1 className="text-4xl md:text-5xl font-bold mb-6">
+          Аренда инструмента в Бийске
+        </h1>
+        <p className="text-xl mb-8">Честная цена · Проверка · Доставка</p>
+        <div className="flex flex-col sm:flex-row justify-center gap-4">
+          <a
+            href="https://t.me/+79959290510"
+            target="_blank"
+            rel="noreferrer"
+            className="flex items-center justify-center gap-2 bg-blue-500 hover:bg-blue-600 text-white font-bold px-8 py-3 rounded"
+          >
+            <SiTelegram />
+            Написать в Telegram
+          </a>
+          <a
+            href="https://wa.me/79959290510"
+            target="_blank"
+            rel="noreferrer"
+            className="border-2 border-white px-8 py-3 rounded font-bold"
+          >
+            WhatsApp
+          </a>
+        </div>
+      </section>
+
+      {/* Categories */}
+      <section className="py-16 bg-gray-50">
+        <h2 className="text-3xl font-bold text-center mb-12">Инструмент под задачу</h2>
+        <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 px-4">
+          {categories.map((c, i) => (
+            <div key={i} className="bg-white rounded shadow overflow-hidden">
+              <img src={c.image} alt={c.name} className="h-40 w-full object-cover" />
+              <div className="p-4 font-semibold">{c.name}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="py-16">
+        <h2 className="text-3xl font-bold text-center mb-12">Вопросы</h2>
+        <div className="max-w-2xl mx-auto px-4">
+          {faqs.map((f, i) => (
+            <div key={i} className="mb-4 border rounded">
+              <button
+                onClick={() => setActiveFaq(activeFaq === i ? null : i)}
+                className="w-full flex justify-between items-center p-4 font-semibold"
+              >
+                {f.q}
+                <ChevronDown className={activeFaq === i ? "rotate-180" : ""} />
+              </button>
+              {activeFaq === i && (
+                <div className="p-4 text-gray-600">{f.a}</div>
+              )}
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-gray-900 text-white py-8 text-center">
+        © 2025 Честный прокат — аренда инструмента
+      </footer>
+    </div>
+  );
+}
